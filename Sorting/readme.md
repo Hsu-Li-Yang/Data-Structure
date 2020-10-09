@@ -1,7 +1,7 @@
 ## Sorting Algorithm
 
 ## QuickSort
-''' {C++} 
+```  
 void Quicksort(vector<int> &nums,int l,int r){
         while(l>=r-1) return;
         
@@ -21,4 +21,4 @@ void Quicksort(vector<int> &nums,int l,int r){
         Quicksort(nums,l,first);
         Quicksort(nums,first+1,r);
     }
-'''
+```
