@@ -67,6 +67,14 @@ void Reverse(ListNode **head){
 	}
 	*head = pre;
 }
+ListNode* find_middle(ListNode *head){
+	ListNode*fast=head,*slow=head;
+	while(fast->next && fast->next->next){
+		fast = fast->next->next;
+		slow = slow->next;
+	}
+	return slow;
+}
 void report(ListNode *head){
 		
 	ListNode *tmp = head;
@@ -97,10 +105,13 @@ int main()
 	cout<<"After Reverse:"<<endl;
 	report(head);
 
+	ListNode *middle = find_middle(head);
+	cout<<"middle="<<middle->val<<endl; 
+
 	Delete(&head,10);
 	cout<<"After delete 10:"<<endl;
 	report(head);
-	
+
 	cout<<"After delete 50:"<<endl;
 	Delete(&head,50);
 	
