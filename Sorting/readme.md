@@ -2,7 +2,7 @@
 
 ## QuickSort
 ``` 
-void Quicksort(vector<int> &nums,int l,int r){
+    void Quicksort(vector<int> &nums,int l,int r){
         while(l>=r-1) return;
         
         int first = l,last =r-1,key = nums[l];
