@@ -1,7 +1,7 @@
 ## Sorting Algorithm
 
 ## QuickSort
-'''
+'''   
 void Quicksort(vector<int> &nums,int l,int r){
         while(l>=r-1) return;
         
