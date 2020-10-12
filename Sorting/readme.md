@@ -57,3 +57,27 @@
         return;
     }
  ```
+ 
+ ## Bubble sort
+ ```
+     void swap(int &a,int &b){
+        int tmp = a;
+        a = b;
+        b = tmp;
+    }
+    
+    void bubbleSort(vector<int>&nums){
+        int n = nums.size();
+        bool flag;
+        for(int i=1;i<n;i++){
+            flag = false;
+            for(int j=1;j<n-i+1;++j){
+                if(nums[j-1] > nums[j]){
+                    swap(nums[j-1],nums[j]);
+                    flag = true;
+                }
+            }
+            if(!flag) break;
+        }
+    }
+ ```
