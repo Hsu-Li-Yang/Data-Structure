@@ -99,3 +99,41 @@
         }
     }
  ```
+ 
+ ## Select k-largest number 
+ ```
+ class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        const int n = nums.size();
+        int l =0,r=nums.size();
+        int mid;
+        while(l<=r){
+            int mid = QuickSelect(nums,l,r);
+            if(mid == n-k) return nums[mid];
+            else if(mid < n-k) l=mid+1;
+            else if(mid > n-k) r=mid;
+        }
+        return nums[l];
+    }
+private:
+    int QuickSelect(vector<int> &nums,int l,int r){
+        
+        if(l>=r-1) return l;
+        
+        int first = l,last = r-1,key = nums[first];
+        while(first < last){
+            while(first<last && nums[last] >= key){
+                last--;
+            }
+            while(first<last && nums[first] <=key){
+                first++;
+            }
+
+            swap(nums[first],nums[last]);
+        }
+        swap(nums[l],nums[first]);
+        return first;
+    }
+};
+ ```
