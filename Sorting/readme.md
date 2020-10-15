@@ -100,6 +100,39 @@
     }
  ```
  
+ ## HeapSort
+ ```
+     void Heapify(vector<int> &nums,int pos,int len){
+        int n = len-1;
+        
+        while(2*pos+1<=n){
+            int i = 2*pos +1;
+            if(i<n && nums[i] < nums[i+1]) i++;
+            if(nums[pos]>=nums[i]) break;
+            swap(nums[pos],nums[i]);
+            pos = i;
+        }
+    }
+    
+    void BuildHeap(vector<int> &nums){
+        int len = nums.size();
+        int n = nums.size()-1;
+        if(n%2) n--;
+        for(int i=n/2;i>=0;--i){
+            Heapify(nums,i,len);
+        }
+    }
+    
+    void HeapSort(vector<int> &nums){
+        
+        BuildHeap(nums);
+        for(int i=nums.size()-1;i>0;--i){
+            swap(nums[0],nums[i]);
+            Heapify(nums,0,i);   
+        }
+    }
+ ```
+ 
  ## Select k-largest number 
  ```
  class Solution {
