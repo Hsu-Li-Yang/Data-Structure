@@ -102,15 +102,12 @@
  
  ## HeapSort
  ```
-     void Heapify(vector<int> &nums,int pos,int len){
-        int n = len-1;
+    void HeapSort(vector<int> &nums){
         
-        while(2*pos+1<=n){
-            int i = 2*pos +1;
-            if(i<n && nums[i] < nums[i+1]) i++;
-            if(nums[pos]>=nums[i]) break;
-            swap(nums[pos],nums[i]);
-            pos = i;
+        BuildHeap(nums);
+        for(int i=nums.size()-1;i>0;--i){
+            swap(nums[0],nums[i]);
+            Heapify(nums,0,i);   
         }
     }
     
@@ -123,14 +120,21 @@
         }
     }
     
-    void HeapSort(vector<int> &nums){
+    void Heapify(vector<int> &nums,int pos,int len){
+        int n = len-1;
         
-        BuildHeap(nums);
-        for(int i=nums.size()-1;i>0;--i){
-            swap(nums[0],nums[i]);
-            Heapify(nums,0,i);   
+        while(2*pos+1<=n){
+            int i = 2*pos +1;
+            if(i<n && nums[i] < nums[i+1]) i++;
+            if(nums[pos]>=nums[i]) break;
+            swap(nums[pos],nums[i]);
+            pos = i;
         }
     }
+    
+
+    
+
  ```
  
  ## Select k-largest number 
